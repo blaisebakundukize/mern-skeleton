@@ -8,7 +8,11 @@ import helmet from "helmet";
 import userRoutes from "./routes/user.routers";
 import authRoutes from "./routes/auth.routes";
 
+import devBundle from "./devBundle";
+
 const app = express();
+
+devBundle.compile(app);
 
 // parse body params and attache them to req.body
 app.use(bodyParser.json());
