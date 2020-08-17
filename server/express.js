@@ -17,6 +17,19 @@ app.use(compress());
 app.use(helmet());
 app.use(cors());
 
+// Handle auth-related errors thrown by express-jwt (error name: 'UnauthorizedError') when it tries to validate JWT tokens in incoming requests
+app.use((err, req, res, next) => {
+  if (err.name === "UnauthorizedError") {
+    res.status(401).json({
+      error: err.name + ": " + err.message,
+    });
+  } else if (err) {
+    res.status(400).json({
+      error: err.name + ": " + err.message,
+    });
+  }
+});
+
 app.use("/", userRoutes);
 app.use("/", authRoutes);
 
