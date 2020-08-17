@@ -1,0 +1,30 @@
+{
+  "name": "mern-skeleton",
+  "version": "1.0.0",
+  "description": "MERN Skeleton",
+  "main": "index.js",
+  "author": "Blaise Bakundukize",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.0"
+  }
+}
