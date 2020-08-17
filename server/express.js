@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import compress from "compression";
@@ -8,10 +9,13 @@ import helmet from "helmet";
 import userRoutes from "./routes/user.routers";
 import authRoutes from "./routes/auth.routes";
 
+//comment out before building for production
 import devBundle from "./devBundle";
 
+const CURRENT_WORKING_DIR = process.cwd();
 const app = express();
 
+//comment out before building for production
 devBundle.compile(app);
 
 // parse body params and attache them to req.body
@@ -23,6 +27,9 @@ app.use(compress());
 app.use(helmet());
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
+
+// Handle the requests to static files such as CSS files, Images, or the bundled client-side JS
+app.use("/dist", express.static(path.join(CURRENT_WORKING_DIR, "dist")));
 
 // mount routes
 app.use("/", userRoutes);
