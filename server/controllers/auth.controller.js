@@ -15,7 +15,7 @@ const signin = (req, res) => {
     const token = jwt.sign({ _id: user._id }, config.jwtSecret)
 
     res.cookie('t', token, { expire: new Date() + 9999 })
-    
+
     return res.status(200).json({
       token,
       user: {
@@ -28,7 +28,14 @@ const signin = (req, res) => {
     return res.status(401).json({error: "Could not sign in."})
   }
 };
-const signout = (req, res) => {};
+
+const signout = (req, res) => {
+  res.clearCookie('t')
+  return res.status(200).json({
+    message: "signed out"
+  })
+};
+
 const requireSignin = true;
 const hasAuthorization = (req, res) => {};
 
