@@ -13,6 +13,6 @@ router
   .put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update)
   .delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove);
 
-router.param("userId", userCtrl.userByID);
+router.param("userId", userCtrl.userById);
 
 export default router;
