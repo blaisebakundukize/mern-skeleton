@@ -1,7 +1,7 @@
 import React from "react";
 import MainRouter from "./MainRouter";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
 // Enables live reloading of components during development.
 import { hot } from "react-hot-loader";
 
