@@ -1,5 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import {} from "@material-ui/core/colors";
+import { pink } from "@material-ui/core/colors";
 
 // customize theme for the app
 const theme = createMuiTheme({
